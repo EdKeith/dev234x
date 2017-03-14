@@ -1,4 +1,31 @@
+/**
+The user should be able to do the following:
 
+Populate the Similar Products List with products of the same type by 
+pressing the "Search Type" button and entering a valid product type in the 
+corresponding input field.
+
+Populate the Similar Products List with products within $50 by pressing 
+the "Search Price" button and entering a valid price in the corresponding 
+input field.
+
+Populate the Examined Product section by pressing the "Search Product" 
+button and entering a valid product id in the corresponding input field. 
+This action will also populate the Similar Products List with products 
+that have the same type and are within $50 of the examined product. (built
+in tutorial)
+
+Populate the Examined Product section by clicking on the "Examine" button 
+in any of the table rows. This action will also populate the Similar 
+Products List with products that have the same type and are within $50 of 
+the examined product. (built in tutorial)
+
+Populate the List of all Products upon opening the web application. (built
+in tutorial)
+
+See an error alert when searching for an invalid id, type or price.
+
+ */
 function createTableHeader(tableId){
     var tableHeaderRow = document.createElement('TR');
     var th1 = document.createElement('TH');
@@ -86,7 +113,30 @@ function processSearch(searchId){
     });
 }
 
-document.getElementById("inputButton").addEventListener('click',function(){
-    processSearch(document.getElementById('input').value);
+function processTypeSearch(searchType){
+    api.searchProductsByType(searchType).then(function(val){
+        updateTable('similarTable',val);
+    }).catch(function(val){
+        alert(val);
+    });
+}
+
+function processPriceSearch(searchPrice){
+    api.searchProductsByPrice(searchPrice, 50).then(function(val){
+        updateTable('similarTable',val);
+    }).catch(function(val){
+        alert(val);
+    });
+}
+
+document.getElementById("inputIDButton").addEventListener('click',function(){
+    processSearch(document.getElementById('inputID').value);
 });
 
+document.getElementById("inputTypeButton").addEventListener('click',function(){
+    processTypeSearch(document.getElementById('inputType').value);
+});
+
+document.getElementById("inputPriceButton").addEventListener('click',function(){
+    processPriceSearch(document.getElementById('inputPrice').value);
+});
