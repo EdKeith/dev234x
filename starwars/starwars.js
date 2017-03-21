@@ -1,8 +1,22 @@
-document.getElementById("button").addEventListener('click',function(){
-    run(gen).catch(function(err){
-        alert(err.message);
-    });
-})
+function setup()
+{
+    document.getElementById("button").addEventListener('click',function(){
+	run(gen).catch(function(err){
+	    alert(err.message);
+	});
+    })
+    var sst = document.getElementById('shipselector');
+    var ss1 = document.getElementById('selectship1');
+    var ss2 = document.getElementById('selectship2');
+    ss1.appendChild(sst.content.cloneNode(true));
+    ss2.appendChild(sst.content.cloneNode(true));
+
+    var t = ss1.getElementsByTagName('select');
+    t[0].id = 'ship1';
+
+    t = ss2.getElementsByTagName('select');
+    t[0].id = 'ship2';
+}
 
 function run(genFunc){
     const genObject= genFunc(); //creating a generator object

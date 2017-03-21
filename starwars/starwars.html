@@ -2,43 +2,34 @@
 <html>
     <head>
         <meta charset="utf-8">
+	<title>Starwars Ships</title>
 	<style>
 	    table,th,td {border:1px solid black;}
 	    .max {background-color:red;}
 	</style>
+	<template id='shipselector'>
+	    <select id='main'>
+		<option value = "2">CR90 Corvette</options>
+		<option value = "75">V-wing</options>
+		<option value = "74">Belbullab-22 Starfighter</options>
+		<option value = "65">Jedi Interceptor</options>
+		<option value = "3">Star Destroyer</options>
+		<option value = "59">Trade Fedaration Cruiser</options>
+		<option value = "58">Solar Sailer</options>
+		<option value = "63">Republic Attack Cruiser</options>
+		<option value = "28">A-wing</options>
+		<option value = "29">B-wing</options>
+		<option value = "39">Naboo Fighter</options>
+		<option value = "10">Millenium Falcon</options>
+	    </select>
+	</template>
     </head>
-    <body>
+    <body onload='setup()'>
 	<h3>Select two Starships from the dropdown lists to compare</h3>
 	<!-- input id = "input" -->
-	<select id = "ship1">
-	    <option value = "2">CR90 Corvette</options>
-	    <option value = "75">V-wing</options>
-	    <option value = "74">Belbullab-22 Starfighter</options>
-	    <option value = "65">Jedi Interceptor</options>
-	    <option value = "3">Star Destroyer</options>
-	    <option value = "59">Trade Fedaration Cruiser</options>
-	    <option value = "58">Solar Sailer</options>
-	    <option value = "63">Republic Attack Cruiser</options>
-	    <option value = "28">A-wing</options>
-	    <option value = "29">B-wing</options>
-	    <option value = "39">Naboo Fighter</options>
-	    <option value = "10">Millenium Falcon</options>
-	</select>
-	
-	<select id = "ship2">
-	    <option value = "2">CR90 Corvette</options>
-	    <option value = "75">V-wing</options>
-	    <option value = "74">Belbullab-22 Starfighter</options>
-	    <option value = "65">Jedi Interceptor</options>
-	    <option value = "3">Star Destroyer</options>
-	    <option value = "59">Trade Fedaration Cruiser</options>
-	    <option value = "58">Solar Sailer</options>
-	    <option value = "63">Republic Attack Cruiser</options>
-	    <option value = "28">A-wing</options>
-	    <option value = "29">B-wing</options>
-	    <option value = "39">Naboo Fighter</options>
-	    <option value = "10">Millenium Falcon</options>
-	</select>
+	<span id='selectship1'></span>
+	<span id='selectship2'></span>
+
 	<button id = "button">Compare</button>
 	<!-- p id="filmsText">Film:<p>
 	<p id="peopleText">Characters:<p -->
@@ -84,7 +75,22 @@
 	</table>
 
 
-        <script src="starwars.js"></script> 
+	<script src="starwars.js"></script>
+	<!-- script>
+	    var sst = document.getElementById('shipselector');
+	    var ss1 = document.getElementById('selectship1');
+	    var ss2 = document.getElementById('selectship2');
+	    //var t = sst.getElementsByTagName('select');
+	    //t[0].id = 'ship1';
+	    ss1.appendChild(sst.content.cloneNode(true));
+	    ss2.appendChild(sst.content.cloneNode(true));
+
+	    var t = ss1.getElementsByTagName('select');
+	    t[0].id = 'ship1';
+
+	    t = ss2.getElementsByTagName('select');
+	    t[0].id = 'ship2';
+	</script -->	
     </body>
 </html>
 
