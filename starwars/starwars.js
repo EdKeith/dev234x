@@ -9,13 +9,9 @@ function setup()
     var ss1 = document.getElementById('selectship1');
     var ss2 = document.getElementById('selectship2');
     ss1.appendChild(sst.content.cloneNode(true));
+    document.getElementById('sssid').id = "ship1";
     ss2.appendChild(sst.content.cloneNode(true));
-
-    var t = ss1.getElementsByTagName('select');
-    t[0].id = 'ship1';
-
-    t = ss2.getElementsByTagName('select');
-    t[0].id = 'ship2';
+    document.getElementById('sssid').id = 'ship2';
 }
 
 function run(genFunc){
